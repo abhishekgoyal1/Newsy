@@ -24,11 +24,25 @@
 </head>
 
 <body>
+<?php 
+  session_start(); 
 
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
-    <a class="navbar-brand" href="index.html">User Name</a>
+    <a class="navbar-brand" href="index.php"><?php  if (isset($_SESSION['username'])) : ?>
+        <?php echo $_SESSION['username']; ?>
+    <?php endif ?></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fa fa-bars"></i>
@@ -36,10 +50,10 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="profile.html">Profile</a>
+          <a class="nav-link" href="profile.php">Profile</a>
         </li>
         <li class="dropdown nav-item">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort by
