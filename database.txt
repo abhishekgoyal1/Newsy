@@ -1,6 +1,6 @@
 CREATE TABLE News (
     NewsID int NOT NULL UNIQUE,
-    Ttile varchar(255) NOT NULL,
+    Title varchar(255) NOT NULL,
     Time DATETIME NOT NULL,
 	filename varchar(255) NOT NULL,
 	URL varchar(255) NOT NULL UNIQUE,
@@ -36,3 +36,6 @@ SELECT N.NewsID, COUNT(U.Vote)
 FROM newsuser U, news N
 WHERE N.NewsID=U.NewsID AND U.Vote = '-1'
 GROUP BY N.NewsID;
+
+SELECT COUNT(news.Title) FROM news WHERE news.Title LIKE '%jwkf%'
+;
