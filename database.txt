@@ -24,3 +24,15 @@ CREATE TABLE NewsUser (
     FOREIGN KEY (NewsID) REFERENCES news(NewsID),
     FOREIGN KEY (UserID) REFERENCES registration(UserID)
 );
+
+CREATE VIEW upvote AS
+SELECT N.NewsID, COUNT(U.Vote)
+FROM newsuser U, news N
+WHERE N.NewsID=U.NewsID AND U.Vote = '1'
+GROUP BY N.NewsID;
+
+CREATE VIEW downvote AS
+SELECT N.NewsID, COUNT(U.Vote)
+FROM newsuser U, news N
+WHERE N.NewsID=U.NewsID AND U.Vote = '-1'
+GROUP BY N.NewsID;
