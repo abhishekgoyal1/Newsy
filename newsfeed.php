@@ -10,7 +10,7 @@
         $title = nl2br($fetch['Title']);
         $desc = nl2br($fetch['summary']);
         $URL = nl2br($fetch['URL']);
-        $date = nl2br($fetch['time']);
+        $date = nl2br($fetch['date']);
         
         echo "<div class=\"post-preview\">
             <a href=\"$URL\">
