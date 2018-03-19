@@ -21,7 +21,7 @@ for article in cnn_paper.articles:
 		article.nlp()
 		# output_file.write(article.publish_date.strftime("%Y-%m-%d %H:%M:%S"))
 		# print("datep")
-		output_file.write("{" + article.url + "|" + article.title + "|" + article.publish_date.strftime("%Y-%m-%d %H:%M:%S") + "|" + article.summary + "|" + article.top_image + "}\n")
+		output_file.write( article.url + "|" + article.title + "|" + article.publish_date.strftime("%Y-%m-%d %H:%M:%S") + "|" + article.summary + "|" + article.top_image + "|}\n")
 		# print("{" + article.url + "|" + article.title + "|" + article.publish_date.strftime("%Y-%m-%d %H:%M:%S") + "|" + article.summary + "|" + article.top_image + "}")
 		# print("article url")
 		# print(article.url)
