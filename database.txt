@@ -26,7 +26,6 @@ CREATE TABLE NewsUser (
     FOREIGN KEY (NewsID) REFERENCES news(NewsID),
     FOREIGN KEY (UserID) REFERENCES registration(UserID)
 );
-ALTER TABLE newsuser ALTER Vote SET DEFAULT '0';
 
 CREATE VIEW upvote AS
 SELECT N.NewsID, COUNT(U.Vote)
