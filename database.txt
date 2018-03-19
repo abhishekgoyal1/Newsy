@@ -3,7 +3,7 @@ CREATE TABLE News (
     Title varchar(255) NOT NULL,
     date DATETIME NOT NULL,
 	URL varchar(255) NOT NULL UNIQUE,
-	summary varchar(255)
+	summary varchar(255),
     PRIMARY KEY (NewsID, URL)
 );
 
