@@ -50,7 +50,7 @@
             </ul>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="login.html">Logout</a>
+              <a class="nav-link" href="index2.php">Logout</a>
           </li>
       </ul>
     </div>
