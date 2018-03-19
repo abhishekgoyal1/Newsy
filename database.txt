@@ -1,7 +1,7 @@
 CREATE TABLE News (
     NewsID int NOT NULL UNIQUE,
     Title varchar(255) NOT NULL,
-    Time DATETIME NOT NULL,
+    date DATETIME NOT NULL,
 	URL varchar(255) NOT NULL UNIQUE,
 	summary varchar(255)
     PRIMARY KEY (NewsID, URL)
