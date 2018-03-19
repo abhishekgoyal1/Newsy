@@ -4,6 +4,8 @@ CREATE TABLE News (
     Time DATETIME NOT NULL,
 	filename varchar(255) NOT NULL,
 	URL varchar(255) NOT NULL UNIQUE,
+	summary varchar(255)
+	imageURL varchar(255)
     PRIMARY KEY (NewsID, URL)
 );
 
@@ -24,6 +26,7 @@ CREATE TABLE NewsUser (
     FOREIGN KEY (NewsID) REFERENCES news(NewsID),
     FOREIGN KEY (UserID) REFERENCES registration(UserID)
 );
+ALTER TABLE newsuser ALTER Vote SET DEFAULT '0';
 
 CREATE VIEW upvote AS
 SELECT N.NewsID, COUNT(U.Vote)
@@ -37,5 +40,5 @@ FROM newsuser U, news N
 WHERE N.NewsID=U.NewsID AND U.Vote = '-1'
 GROUP BY N.NewsID;
 
-SELECT COUNT(news.Title) FROM news WHERE news.Title LIKE '%jwkf%'
-;
+SELECT COUNT(news.Title) FROM news WHERE news.Title LIKE '%jwkf%';
+SELECT vote FROM newsuser WHERE  NewsID = '3523'AND UserID = '65878';
