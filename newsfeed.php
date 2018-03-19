@@ -4,9 +4,9 @@
     echo "<div class=\"container\">
     <div class=\"row\">
         <div class=\"col-lg-8 col-md-10 mx-auto\">";
-    
-    while ($fetch = mysqli_fetch_assoc($query)){
-        
+    $count=0;
+    while ($fetch = mysqli_fetch_assoc($query) && $count!=50){
+        $count++;
         $title = nl2br($fetch['Title']);
         $desc = nl2br($fetch['summary']);
         $URL = nl2br($fetch['URL']);
