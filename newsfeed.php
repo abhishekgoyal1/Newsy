@@ -7,7 +7,7 @@
     while ($fetch = mysqli_fetch_assoc($query)){
         $title = nl2br($fetch['Title']);
         $desc = nl2br($fetch['summary']);
-        $URL = nl2br($fetch['URL']);
+        $URL = $fetch['URL'];
         $date = nl2br($fetch['date']);
         
         echo "<div class=\"post-preview\">
