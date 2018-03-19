@@ -28,13 +28,13 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
   }
   if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
   }
 ?>
 <!-- Navigation -->
@@ -55,14 +55,14 @@
         <li class="nav-item">
           <a class="nav-link" href="profile.php">Profile</a>
         </li>
-        <li class="dropdown nav-item">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort by
-                <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Timestamp</a></li>
-                <li><a href="#">Vote Count</a></li>
-            </ul>
-          </li>
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort by
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a id='ts' href="#">Timestamp</a></li>
+                    <li><a id= 'vc' href="#">Vote Count</a></li>
+                </ul>
+              </li>
           <li class="nav-item">
               <a class="nav-link" href="index2.php">Logout</a>
           </li>
@@ -88,12 +88,13 @@
 <script>
 $(document).ready(function(){
    $("#loader").hide();
-   $('#div1').load("newsfeed.php",function(response, status, xhr) {
-       if (status == "error") {
-           var msg = "Sorry but there was an error: ";
-           alert(msg + xhr.status + " " + xhr.statusText);
-       }
-   });   
+    
+    $('#div1').load("newsfeed.php",function(response, status, xhr) {
+        if (status == "error") {
+            var msg = "Sorry but there was an error: ";
+            alert(msg + xhr.status + " " + xhr.statusText);
+        }
+    });      
 });
 </script>
 
@@ -115,7 +116,8 @@ $(document).ready(function(){
   </div>
 </footer>
 
-
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
