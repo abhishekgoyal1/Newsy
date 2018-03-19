@@ -13,7 +13,11 @@ foreach($arrfields as $field) {
 	echo "";*/
 	//$field = substr( $field, 1 );
 	$arrfields2 = explode('|', $field);
-	
+	$arrfields2[0] = mysqli_real_escape_string($dbc, $arrfields2[0]);
+	$arrfields2[1] = mysqli_real_escape_string($dbc, $arrfields2[1]);
+	$arrfields2[2] = mysqli_real_escape_string($dbc, $arrfields2[2]);
+	$arrfields2[3] = mysqli_real_escape_string($dbc, $arrfields2[3]);
+	$arrfields2[4] = mysqli_real_escape_string($dbc, $arrfields2[4]);
 	$query = "INSERT INTO `news` (`NewsID`, `Title`, `Time`, `filename`, `URL`, `summary`, `imageURL`) 
 	VALUES ('$i', '$arrfields2[1]', '$arrfields2[2]', '$textCnt', '$arrfields2[0]', '$arrfields2[3]', '$arrfields2[4]');";
 	$response = @mysqli_query($dbc, $query);
@@ -24,10 +28,11 @@ foreach($arrfields as $field) {
 	
 		echo mysqli_error($dbc);
 		echo "</BR>";
+		echo "</BR>";
 	
 	} else {
 	
-	echo "Data added successfully.";
+	//echo "Data added successfully.";
 	}
 }
 echo mysqli_error($dbc);
