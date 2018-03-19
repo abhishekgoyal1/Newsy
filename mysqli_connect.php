@@ -17,8 +17,8 @@ DELETE : Delete existing rows (Remove privilege if not required)
 */
 
 // Defined as constants so that they can't be changed
-DEFINE ('DB_USER', 'studentweb');
-DEFINE ('DB_PASSWORD', 'toor');
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'newsy');
 
