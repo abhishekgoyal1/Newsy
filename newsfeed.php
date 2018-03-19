@@ -17,7 +17,7 @@
                 $title
               </h2>
               <h3 class=\"post-subtitle\">
-                $desc
+                $desc....
               </h3>
             </a>
             <p class=\"post-meta\">$date

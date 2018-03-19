@@ -85,16 +85,41 @@
     </div>
   </div>
 </header>
+    
+<div id="div2"></div>
 <script>
 $(document).ready(function(){
    $("#loader").hide();
-    
+    $('#div2').load("parse_new.php");
+    $('#div2').hide();
     $('#div1').load("newsfeed.php",function(response, status, xhr) {
         if (status == "error") {
             var msg = "Sorry but there was an error: ";
             alert(msg + xhr.status + " " + xhr.statusText);
         }
     });  
+    function alertNextHour() {
+    var nextAlert = new Date();
+    nextAlert.setHours(nextAlert.getHours() + 1);
+    nextAlert.setMinutes(0);
+    nextAlert.setSeconds(0);
+    nextAlert.setMilliseconds(0);
+
+    var timeToNextAlert = nextAlert - new Date();
+
+    setTimeout(function() {
+        $('#div2').load("parse_new.php");
+        $('#div2').hide();
+        $('#div1').load("newsfeed.php",function(response, status, xhr) {
+            if (status == "error") {
+            var msg = "Sorry but there was an error: ";
+            alert(msg + xhr.status + " " + xhr.statusText);
+        }
+        });  
+
+        alertNextHour();
+    }, timeToNextAlert);    
+    }
     $("#old").click(function(){
         alert("button");
         $('#div1').load("newsfeed2.php",function(response, status, xhr) {
