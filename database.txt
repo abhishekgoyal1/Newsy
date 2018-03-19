@@ -1,9 +1,11 @@
 CREATE TABLE News (
     NewsID int NOT NULL UNIQUE,
     Title varchar(255) NOT NULL,
-    date DATETIME NOT NULL,
+    Time DATETIME NOT NULL,
+	filename varchar(255) NOT NULL,
 	URL varchar(255) NOT NULL UNIQUE,
 	summary varchar(255),
+	imageURL varchar(255),
     PRIMARY KEY (NewsID, URL)
 );
 
@@ -24,6 +26,7 @@ CREATE TABLE NewsUser (
     FOREIGN KEY (NewsID) REFERENCES news(NewsID),
     FOREIGN KEY (UserID) REFERENCES registration(UserID)
 );
+ALTER TABLE newsuser ALTER Vote SET DEFAULT '0';
 
 CREATE VIEW upvote AS
 SELECT N.NewsID, COUNT(U.Vote)
