@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 website_name = sys.argv[1]
-current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+current_time = datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
 output_file = open("article_data/" + current_time, 'w')
 
 
@@ -21,7 +21,7 @@ for article in cnn_paper.articles:
 		article.nlp()
 		# output_file.write(article.publish_date.strftime("%Y-%m-%d %H:%M:%S"))
 		# print("datep")
-		output_file.write( article.url + "|" + article.title + "|" + article.publish_date.strftime("%Y-%m-%d %H:%M:%S") + "|" + article.summary + "|" + article.top_image + "|}\n")
+		output_file.write( article.url + "|" + article.title + "|" + article.publish_date.strftime("%Y.%m.%d.%H.%M.%S") + "|" + article.summary + "|" + article.top_image + "|}\n")
 		# print("{" + article.url + "|" + article.title + "|" + article.publish_date.strftime("%Y-%m-%d %H:%M:%S") + "|" + article.summary + "|" + article.top_image + "}")
 		# print("article url")
 		# print(article.url)
