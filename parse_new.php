@@ -4,6 +4,7 @@ require_once('mysqli_connect.php');
 
 $textCnt  = "data.txt";
 $contents = file_get_contents($textCnt);
+rtrim($contents,'}');
 $arrfields = explode('}', $contents);
 $i = 1001;
 foreach($arrfields as $field) {
