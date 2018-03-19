@@ -10,7 +10,7 @@ CREATE TABLE News (
 );
 
 CREATE TABLE Registration (
-    UserID int NOT NULL UNIQUE,
+    UserID int UNIQUE AUTO_INCREMENT,
     Username varchar(255) NOT NULL UNIQUE,
     Password varchar(255) NOT NULL,
     Name varchar(255),
