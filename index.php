@@ -94,10 +94,52 @@ $(document).ready(function(){
             var msg = "Sorry but there was an error: ";
             alert(msg + xhr.status + " " + xhr.statusText);
         }
-    });      
+    });  
+    $("#old").click(function(){
+        alert("button");
+        $('#div1').load("newsfeed2.php",function(response, status, xhr) {
+        if (status == "error") {
+            var msg = "Sorry but there was an error: ";
+            alert(msg + xhr.status + " " + xhr.statusText);
+        }
+    });  
+    });
 });
 </script>
-
+<script>
+$(document).ready(function () {
+    $("button.vote_up").click(function () {
+        the_id = $(this).attr('id');
+        $.ajax({
+            type: "POST",
+            data: "action=upvote&id=" + $(this).attr("id"),
+            url: "vote.php",
+            success: function (msg) {
+                alert("Success");
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    });
+});   
+$(document).ready(function () {
+    $("button.vote_down").click(function () {
+        the_id = $(this).attr('id');
+        $.ajax({
+            type: "POST",
+            data: "action=downvote&id=" + $(this).attr("id"),
+            url: "vote.php",
+            success: function (msg) {
+                alert("Success");
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    });
+}); 
+</script>
 <div id="div1">
     <div id="loader">Loading...</div>
 </div>
