@@ -4,8 +4,8 @@ from datetime import datetime
 
 
 website_name = sys.argv[1]
-current_time = datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
-output_file = open("article_data/" + current_time, 'w')
+# current_time = datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
+output_file = open("articles.txt", 'w')
 
 
 cnn_paper = newspaper.build(website_name,memoize_articles=False)
@@ -33,7 +33,7 @@ for article in cnn_paper.articles:
 			break
 
 output_file.close()
-print(current_time)
+# print(current_time)
 
 # for category in cnn_paper.category_urls():
 	# print(category)
